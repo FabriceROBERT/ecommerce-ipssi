@@ -1,16 +1,23 @@
-import "./App.css";
-import HomePage from "./pages/HomePage";
+// src/App.js
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { UserProvider } from "./components/userContext";
+import LoginPage from "./pages/LoginPage";
+import Dashboard from "./pages/Dashboard";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div className="App">
+    <UserProvider>
       <Router>
         <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<HomePage />} />
+          {/* Add other routes as needed */}
         </Routes>
       </Router>
-    </div>
+    </UserProvider>
   );
 }
 
