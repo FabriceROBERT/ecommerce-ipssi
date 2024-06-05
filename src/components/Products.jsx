@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Container from "./Container";
 
@@ -36,6 +37,12 @@ export default function Products() {
             </h1>
             <p>{product.price} €</p>
             {/* <p className="text-sm">{product.description}</p> */}
+            <Link
+              className="hover:bg-fuchsia-800 mt-5 rounded shadow-md bg-fuchsia-700 justify-center p-3 text-center"
+              to={`/product/${product.id}`}
+            >
+              See more
+            </Link>
           </div>
         ))}
       </div>

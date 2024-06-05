@@ -4,14 +4,17 @@ import { UserContext } from "../components/userContext";
 import Navbar from "../components/Navbar";
 
 export default function Dashboard() {
-  const { user, clearUserSession } = useContext(UserContext);
+  const { user, setUserSession, clearUserSession } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUserSession(JSON.parse(storedUser));
+    } else if (!user) {
       navigate("/login");
     }
-  }, [user, navigate]);
+  }, [user, navigate, setUserSession]);
 
   if (!user) {
     return <div>Loading...</div>;
@@ -27,8 +30,6 @@ export default function Dashboard() {
       <Navbar />
       <h1>Welcome, {user.username}</h1>
       <p>Your user ID is {user.id}</p>
-      <button onClick={handleLogout}>Logout</button>
-      {/* Render more user-specific data as needed */}
     </div>
   );
 }
