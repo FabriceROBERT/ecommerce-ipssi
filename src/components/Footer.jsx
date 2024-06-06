@@ -16,7 +16,13 @@ export default function Footer() {
       /> */}
       <div className="relative  md:grid grid-cols-2 z-10 ">
         <div className="  w-full p-5 mt-20 mb-10 md:mb-28">
-          <img src={Logo} alt="" className=" h-52  md:w-2/3" />
+          <div className="relative h-52">
+            <img
+              src={Logo}
+              alt=""
+              className=" w-full h-full object-contain absolute   md:w-2/3"
+            />
+          </div>
           <p className="text-center md:text-left mt-10">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
             dolorum, neque sapiente iure illum assumenda quae praesentium quidem
@@ -37,7 +43,7 @@ export default function Footer() {
               contact@fabriceandpapa.com
             </span>
           </div>
-          {/* right */}
+          {/* Côté droit */}
         </div>
       </div>
       <div className="flex items-center justify-between relative z-10">
