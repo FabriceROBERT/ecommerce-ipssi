@@ -5,19 +5,19 @@ import { CartProvider } from "../components/CartContext";
 
 describe("CartProvider", () => {
   beforeEach(() => {
-    // Effacez le localStorage avant chaque test
+    // Efface le localStorage avant chaque test
     localStorage.clear();
   });
 
   test("renders children correctly", () => {
-    // Rendu du composant CartProvider avec un enfant fictif
+    // Test du composant CartProvider avec un enfant fictif
     render(
       <CartProvider>
         <div data-testid="child">Child Component</div>
       </CartProvider>
     );
 
-    // Vérifiez que l'enfant est rendu correctement
+    // Vérifie que l'enfant est rendu correctement
     expect(screen.getByTestId("child")).toBeInTheDocument();
   });
 
@@ -29,16 +29,16 @@ describe("CartProvider", () => {
       </CartProvider>
     );
 
-    // Sélectionnez le bouton pour ajouter un produit au panier
+    // Sélectionne le bouton pour ajouter un produit au panier
     const addButton = screen.getByText("Add to Cart");
 
-    // Simulez un clic sur le bouton d'ajout au panier
+    // Simule un clic sur le bouton d'ajout au panier
     userEvent.click(addButton);
 
-    // Vérifiez que le produit est ajouté au panier (localStorage)
+    // Vérifie que le produit est ajouté au panier (localStorage)
     const storedCart = JSON.parse(localStorage.getItem("cart"));
-    expect(storedCart).toHaveLength(1); // Vérifiez la longueur du panier
-    expect(storedCart[0]).toHaveProperty("id"); // Vérifiez que le produit a un identifiant
-    expect(storedCart[0]).toHaveProperty("quantity", 1); // Vérifiez que la quantité est correcte
+    expect(storedCart).toHaveLength(1); // Vérifie la longueur du panier
+    expect(storedCart[0]).toHaveProperty("id"); // Vérifie que le produit a un identifiant
+    expect(storedCart[0]).toHaveProperty("quantity", 1); // Vérifie que la quantité est correcte
   });
 });
