@@ -1,0 +1,11 @@
+.addCart {
+    background-color: rgb(31, 41 ,55 );
+    color: White;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.Name_Logo {
+    display: flex;
+    align-items: center;
+}

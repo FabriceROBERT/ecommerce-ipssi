@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Container from "./Container";
+import '../style/Products.css';
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then((response) => {
-      console.log(response.data);
       setProducts(response.data);
     });
   }, []);
@@ -34,8 +34,10 @@ export default function Products() {
                 <h1> {product.title} </h1>
               )}
             </h1>
+            <a href=""> details </a>
+            
             <p>{product.price} €</p>
-            {/* <p className="text-sm">{product.description}</p> */}
+            <button className="addCart"> Add to Cart </button>
           </div>
         ))}
       </div>

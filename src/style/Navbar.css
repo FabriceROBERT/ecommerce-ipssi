@@ -1,0 +1,38 @@
+.nav, .shopping_cart{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.nav{
+    justify-content: space-between;
+    margin: 50px;
+    background-color: rgb(31, 41 ,55 );
+}
+
+.Links_Cart{
+    display: flex;
+    padding-right: 20px;
+}
+
+.Logo {
+    width: 80px;
+}
+
+.Login_Dash {
+    padding-right: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.Banner {
+    margin: 50px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Select{
+    display: inline;
+}
